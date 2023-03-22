@@ -1,19 +1,20 @@
 
 @charset "utf-8";
 #header {
+	position: center;
 	border-style: none;
 	width: 800px;
 	height: auto;
 }
 #wrapper {
 	margin-top: 0px;
-	margin-left: 200px;
+	margin-left: 0px;
 	margin-right: 0px;
-	background: url("{% static 'ocean.png' %}") no-repeat center center;
+	background-color: rgb(244, 216, 167);
 	background-size: 1900px;
 	width: auto;
 	display: flex;
-	align-items: left;
+	align-items: center;
 	flex-direction: column;
 }
 html, body {
