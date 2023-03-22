@@ -7,18 +7,18 @@
 }
 #wrapper {
 	margin-top: 0px;
-	margin-left: 0px;
+	margin-left: 200px;
 	margin-right: 0px;
 	background: url("{% static 'ocean.png' %}") no-repeat center center;
 	background-size: 1900px;
 	width: auto;
 	display: flex;
-	align-items: center;
+	align-items: left;
 	flex-direction: column;
 }
 html, body {
 	margin: 0px;
-	color: white;
+	color: rgb(0, 0, 0);
 }
 #bg{
 	background-repeat: no-repeat;
@@ -34,9 +34,9 @@ html, body {
 	padding-bottom: 10px;
 	background: url("{% static 'ocean.png' %}") no-repeat center center;
 	background-size: 1900px;
-	border-top: thin solid #ffffff;
+	border-top: thin solid #000000;
 	clear: both;
-	color: #ffffff;
+	color: #000000;
 }
 #nav {
 	width:900px;
@@ -54,8 +54,8 @@ html, body {
 	padding-bottom: 10px;
 	font-size: 1em;
 	list-style-type: none;
-	border-bottom: thin solid #ffffff;
-	color: #ffffff;
+	border-bottom: thin solid #000000;
+	color: #000000;
 
 }
 #nav li a {
@@ -63,7 +63,7 @@ html, body {
 	padding:3px;
 	text-decoration: none;
 	background-color: transparent;
-	color:rgb(255, 255, 255)
+	color:rgb(0, 0, 0)
 }
 #leftsidebar {
 	width: 180px;
