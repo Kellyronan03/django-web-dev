@@ -1,0 +1,82 @@
+
+@charset "utf-8";
+#header {
+	border-style: none;
+	width: 800px;
+	height: auto;
+}
+#wrapper {
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	background: url("{% static 'ocean.png' %}") no-repeat center center;
+	background-size: 1900px;
+	width: auto;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+html, body {
+	margin: 0px;
+	color: white;
+}
+#bg{
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 1900px;
+	background-attachment: fixed;
+}
+#footer {
+	text-align: center;
+	font-size: 0.8em;
+	margin-top: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background: url("{% static 'ocean.png' %}") no-repeat center center;
+	background-size: 1900px;
+	border-top: thin solid #ffffff;
+	clear: both;
+	color: #ffffff;
+}
+#nav {
+	width:900px;
+	font-family: 'Times New Roman';
+	display:flex;
+	align-items: center;
+	justify-content: center;
+}
+#nav li {
+	display:block;
+	width:120px;
+	float:left;
+	border:1px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 1em;
+	list-style-type: none;
+	border-bottom: thin solid #ffffff;
+	color: #ffffff;
+
+}
+#nav li a {
+	display:block;
+	padding:3px;
+	text-decoration: none;
+	background-color: transparent;
+	color:rgb(255, 255, 255)
+}
+#leftsidebar {
+	width: 180px;
+	height: 350px;
+	float: left;
+}
+#main {
+	width: 560px;
+	float: left;
+	margin-left: 20px;
+	margin-right: 10px;
+	padding-right: 10px;
+}
+#logo {
+	padding: 10px;
+}
