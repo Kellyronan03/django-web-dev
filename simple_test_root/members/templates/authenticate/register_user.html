@@ -1,0 +1,44 @@
+{% load static %}
+
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}
+				Register
+			{% endblock title %}
+		</title>
+		<link href="{% static 'login.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'logo.png' %}" rel="icon" type="image/x-icon">
+	</head>
+	<body>
+        {% if form.errors %}
+        {% endif %} 
+		<div id="wrapper">
+			<div class="top-left">{{ date }}</div>
+			<header1 id="header">
+				<div id="topbanner"><a href="/"><img src="{% static 'logo.png' %}" width="300" alt=""/></a></div>
+			</header1>
+			<h1>Register</h1>
+		<br>
+			<section id="main">
+        {% block main_content %}
+        <form action="{% url 'register_user' %}" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br><br/>
+            <input type="submit" value="Submit" class="btn btn-secondary">
+        </form>
+        {% endblock main_content %}
+			</section>
+			<br><br/>
+			<header>                   
+				<nav>
+					<a href="{% url 'index' %}contact">Contact Us</a>
+				</nav>
+			</header>
+		<footer id="footer">Copyright &copy; 2023 CA229 Group 235
+	</div>
+	</body>
+</html>
