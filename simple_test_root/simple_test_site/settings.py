@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'bootstrap4',
     'members',
     'polls.apps.PollsConfig',
     'pages.apps.PagesConfig',
