@@ -39,27 +39,27 @@
 				{% endfor %}
 			{% endif %}
 			<section id="main">
-        {% block main_content %}
-          <form action="" method="POST">
-            {% csrf_token %}
-            <div class="mb-3">
-            	<label for="exampleInputEmail1" class="form-label">Username:</label>
-                <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
-				<br>
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password:</label>
-                <input type="password" class="form-control" name="password">
-				<br>
-            </div>
-			<div class="checkbox">
-				<label><input type="checkbox"> Remember me</label>
-			  </div>
-			  <br>
-              <input type="submit" value="Submit" class="btn btn-secondary">
-          </form>
-        {% endblock main_content %}
-			</section>
+				{% block main_content %}
+				  <form action="{% url 'login' %}" method="POST">
+					{% csrf_token %}
+					<div class="mb-3">
+					  <label for="exampleInputEmail1" class="form-label">Username:</label>
+					  <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
+					  <br>
+					</div>
+					<div class="mb-3">
+					  <label for="exampleInputPassword1" class="form-label">Password:</label>
+					  <input type="password" class="form-control" name="password">
+					  <br>
+					</div>
+					<div class="checkbox">
+					  <label><input type="checkbox"> Remember me</label>
+					</div>
+					<br>
+					<input type="submit" value="Submit" class="btn btn-secondary">
+				  </form>
+				{% endblock main_content %}
+			  </section>			  
 			<br><br/>
 			<header>                   
 				<nav>
