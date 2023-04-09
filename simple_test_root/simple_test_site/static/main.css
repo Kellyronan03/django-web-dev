@@ -89,3 +89,6 @@ html, body {
 	display:block;
 	margin:0 auto;
 }
+#head {
+	color: rgb(244, 216, 167);
+}

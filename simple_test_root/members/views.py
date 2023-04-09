@@ -5,6 +5,21 @@ from django.urls import reverse
 from django.contrib.auth.forms import UserCreationForm
 from .forms import RegisterUserForm
 import datetime
+from django.contrib.auth.views import LoginView
+from django.contrib import messages
+from django.contrib.auth.views import LogoutView
+
+class CustomLogoutView(LogoutView):
+    def dispatch(self, request, *args, **kwargs):
+        messages.success(request, "You have successfully logged out.")
+        return super().dispatch(request, *args, **kwargs)
+
+
+class CustomLoginView(LoginView):
+    def form_valid(self, form):
+        messages.success(self.request, "You have successfully logged in.")
+        return super().form_valid(form)
+
 
 def login_user(request):
     if request.method == 'POST':
