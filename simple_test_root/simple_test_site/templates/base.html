@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
 	<head>
-		<meta charset="UTF-8">
+		<meta charset="UTF-8"> 
 		<title>
 			{% block title %}
 				Untitled Document
@@ -12,8 +12,7 @@
 		<link href="{% static 'favicon.ico' %}" rel="icon" type="image/x-icon">
 	</head>
 	<body>
-	<body></body>
-	
+	<body></body> 
 	<div>
 </body>
 	</div>	
@@ -22,19 +21,37 @@
 			<div id="topbanner" class="center">
 				<img src="{% static 'sofa.png' %}" width="400" height="150" alt=""  />
 			</div>
+			{% if user.is_authenticated %}
+				<div style="position: absolute; top: 20px; right: 0; padding: 8px;">
+					<a href="{% url 'logout' %}" style="background-color: #612D00; color: white; padding: 8px 16px; text-decoration: none; border-radius: 4px;">Logout</a>
+				</div>
+				{% else %}
+				<div style="position: absolute; top: 20px; right: 100px; padding: 8px;">
+					<a href="{% url 'login' %}" style="background-color: #612D00; color: white; padding: 8px 16px; text-decoration: none; border-radius: 4px;">Login</a>
+				</div>
+				<div style="position: absolute; top: 20px; right: 0; padding: 8px;">
+					<a href="{% url 'login' %}" style="background-color: #612D00; color: white; padding: 8px 16px; text-decoration: none; border-radius: 4px;">Register</a>
+				</div>
+			{% endif %}  
 		</header>
+		{% if messages %}
+		<div class="messages">
+			{% for message in messages %}
+			<div{% if message.tags %} class="{{ message.tags }}" style="background-color: #612D00; color: white; padding: 8px 16px; text-decoration: none; border-radius: 4px;" {% endif %}>{{ message }}</div>
+			{% endfor %}
+		</div>
+		{% endif %}
 		<aside id="middlesidebar">
 			<nav id="nav">
 			<ul>
-				
 			    {% block sidenav %}
 					<li >Menu 1</li>
 					<li>Menu 2</li>
 					<li>Menu 3</li>
 				{% endblock sidenav %}
 				<li><a href="{% url 'index' %}contact">Contact Us</a></li>
-				</ul>
 			</nav>
+
 		</aside>
 		<section id="main">
 			{% block main_content %}
@@ -44,7 +61,7 @@
 				{% endautoescape %}
 			{% endblock main_content %}
 		</section>
-		<footer id="footer">Copyright &copy; 2023 CA229 Group 115
+		<footer id="footer">Copyright &copy; 2023 CA229 Group 220
 	</div>
 	</body>
 </html>

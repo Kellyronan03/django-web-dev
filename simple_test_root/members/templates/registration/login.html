@@ -1,0 +1,75 @@
+{% load static %}
+
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}
+				Login
+			{% endblock title %}
+		</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css" integrity="sha512-..." crossorigin="anonymous" />
+		<link href="{% static 'login.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'logo.png' %}" rel="icon" type="image/x-icon">
+		<style>
+			section {
+			  min-height: calc(100vh - 530px);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div class="top-left">{{ date }}</div>
+			<header1 id="header">
+				<div id="topbanner"><a href="/"><img src="{% static 'logo.png' %}" width="300" alt=""/></a></div>
+			</header1>
+			<h1>Login</h1>
+			<br><br>
+			{% if messages %}
+				<style>
+					section {
+					min-height: calc(100vh - 604px);
+					}
+				</style>
+				{% for message in messages %}
+				<div class="alert alert-danger">
+					<strong>Error!</strong> {{ message }}
+				</div>
+				{% endfor %}
+			{% endif %}
+			<section id="main">
+				{% block main_content %}
+				  <form action="{% url 'login' %}" method="POST">
+					{% csrf_token %}
+					<div class="mb-3">
+					  <label for="exampleInputEmail1" class="form-label">Username:</label>
+					  <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
+					  <br>
+					</div>
+					<div class="mb-3">
+					  <label for="exampleInputPassword1" class="form-label">Password:</label>
+					  <input type="password" class="form-control" name="password">
+					  <br>
+					</div>
+					<div class="checkbox">
+					  <label><input type="checkbox"> Remember me</label>
+					</div>
+					<br>
+					<input type="submit" value="Submit" class="btn btn-secondary">
+				  </form>
+				{% endblock main_content %}
+			  </section>			  
+			<br><br/>
+			<header>                   
+				<nav>
+					<a href="{% url 'index' %}contact">Contact Us</a>
+				</nav>
+			</header>
+			<footer id="footer">Copyright &copy; 2023 CA229 Group 235
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js" integrity="sha512-..." crossorigin="anonymous"></script>
+	</body>
+</html>
+
+
