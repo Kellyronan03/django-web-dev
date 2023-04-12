@@ -7,6 +7,7 @@ from .models import Choice, Question
 from pages.models import Page
 
 
+from pages.models import Page
 
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
