@@ -4,6 +4,8 @@ from django.urls import reverse
 from django.views import generic
 
 from .models import Choice, Question
+from pages.models import Page
+
 
 
 class IndexView(generic.ListView):
@@ -13,6 +15,10 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         """Return the last five published questions."""
         return Question.objects.order_by('-pub_date')[:5]
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['page_list'] = Page.objects.all()
+        return context
 
 
 # Create your views here.
