@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+# Registering the Question model.
 from .models import Question
 
 admin.site.register(Question)

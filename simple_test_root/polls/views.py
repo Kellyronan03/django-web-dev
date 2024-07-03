@@ -9,6 +9,7 @@ from pages.models import Page
 
 from pages.models import Page
 
+# View for listing the latest questions on the index page
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
@@ -22,16 +23,17 @@ class IndexView(generic.ListView):
         return context
 
 
-# Create your views here.
+# View for displaying details of a specific question
 class DetailView(generic.DetailView):
     model = Question
     template_name = 'polls/detail.html'
 
-
+# View for displaying results of a specific question after voting
 class ResultsView(generic.DetailView):
     model = Question
     template_name = 'polls/results.html'
 
+# View for handling user votes on a question
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:

@@ -7,6 +7,7 @@ from django.core.mail import send_mail, get_connection
 from . models import Page
 from .contact import ContactForm
 
+# View function for rendering page content based on pagename
 def index(request, pagename = ''):
     pagename = '/' + pagename
     pg = Page.objects.get(permalink=pagename)
@@ -17,7 +18,8 @@ def index(request, pagename = ''):
         'page_list': Page.objects.all(),
     }
     return render(request, 'pages/page.html', context)
-
+    
+# View function for handling contact form submission and rendering contact page
 def contact(request):
     submitted = False
     if request.method == 'POST':

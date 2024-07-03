@@ -9,18 +9,21 @@ from django.contrib.auth.views import LoginView
 from django.contrib import messages
 from django.contrib.auth.views import LogoutView
 
+# Custom LogoutView class inheriting from Django's LogoutView
 class CustomLogoutView(LogoutView):
+    # Override dispatch method to add a success message upon logout
     def dispatch(self, request, *args, **kwargs):
         messages.success(request, "You have successfully logged out.")
         return super().dispatch(request, *args, **kwargs)
 
-
+# Custom LoginView class inheriting from Django's LoginView
 class CustomLoginView(LoginView):
+    # Override form_valid method to add a success message upon login
     def form_valid(self, form):
         messages.success(self.request, "You have successfully logged in.")
         return super().form_valid(form)
 
-
+# Function-based view for user login
 def login_user(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -30,21 +33,21 @@ def login_user(request):
             login(request, user)
             return redirect('/')
         else:
-            messages.success(request, ("There was an error logging in. Please try again."))
+            messages.success(request, "There was an error logging in. Please try again.")
             return redirect('login')
-    
     else:
         return render(request, 'authenticate/login.html', {})
 
+# Function-based view for user logout
 def logout_user(request):
     logout(request)
-    messages.success(request, ("You are currently logged out."))
+    messages.success(request, "You are currently logged out.")
     return redirect('/')
 
-
+# Function-based view for user registration
 def register_user(request):
     if request.method == 'POST':
-        form = RegisterUserForm(request.POST)            
+        form = RegisterUserForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data['username']

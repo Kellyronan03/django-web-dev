@@ -2,6 +2,7 @@ from . import views
 from django.urls import path
 from .views import CustomLoginView, CustomLogoutView
 
+# Define URL patterns for the members model
 urlpatterns = [
     path('login_user', views.login_user, name="login",),
     path('logout_user', views.logout_user, name="logout",),
